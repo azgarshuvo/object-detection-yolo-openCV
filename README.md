@@ -18,7 +18,7 @@ Given the below link you will find several version of YOLO. Select a version and
 
 
 ## COCO Dataset
-The COCO dataset is used to label the object after detection. The dataset is already in **data** folder
+The COCO dataset is used to label the object after detection. The dataset is already in **data** folder.
 If you wish you can download the dataset from the following link <https://github.com/pjreddie/darknet/blob/master/data/coco.names/>
 
 
