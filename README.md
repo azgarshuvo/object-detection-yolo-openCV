@@ -14,7 +14,7 @@ Given the below link you will find several version of YOLO. Select a version and
 * For faster processing you may download the YOLOv3-tiny 
 * For better accuracy you may download other version-3 configuration file
 * Here I have used YOLOv3-320
-* Refer to: < https://pjreddie.com/darknet/yolo/ />
+* Refer to: <https://pjreddie.com/darknet/yolo/>
 
 
 ## COCO Dataset
