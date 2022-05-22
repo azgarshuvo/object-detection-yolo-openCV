@@ -16,5 +16,10 @@ Given the below link you will find several version of YOLO. Select a version and
 * Here I have used YOLOv3-320
 * Refer to:  [http://unlicense.org](https://pjreddie.com/darknet/yolo/)
 
+
 ## COCO Dataset
 The COCO dataset is used to label the object after detection. The dataset is already in **data** folder
+
+
+## Input File
+Using YOLO you can Detect the object from an Image or from a live video or using your webcam. Place your input file into the **file** folder
