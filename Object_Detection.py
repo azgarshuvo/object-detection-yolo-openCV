@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import csv
 
 webcam = False
 # read the yolo configuration file, its a deep-neural-network formula
@@ -14,6 +15,7 @@ if webcam:
 else:
     cap = cv2.VideoCapture("file/cam3_004.mp4")
 
+frame_count = 1
 while True:
     # capture the video frame
     _, frame = cap.read()
@@ -42,6 +44,7 @@ while True:
     boxes = []
     confidences = []
     class_ids = [] # represent the predicted classes
+    params = [] # additional parameter for class_id
 
     for output in layerOutputs: # extract the information from each of the input
         for detection in output: # extract the information from each of the output
@@ -57,9 +60,13 @@ while True:
                 x = int(center_x - w/2)
                 y = int(center_y - h/2)
 
+                class_name = str(classes[class_id])
                 boxes.append([x, y, w, h])
                 confidences.append((float(confidence)))
                 class_ids.append(class_id)
+                
+                if class_name == 'person':
+                    params.append([x, y, w, h, frame_count, class_name])
                 # first 4 coeffcient is the location of the bounding box and the 5th element is the box confidence 
     
     # an object has multiple boxes, NMSBoxes method get the highest score of the boxes
@@ -81,10 +88,21 @@ while True:
             cv2.putText(frame, label + " " + confidence, (x, y+20), font, 2, (255,255,255), 2)
 
     cv2.imshow('Image', frame)
+    
+    # opening the csv file in 'a+' mode
+    file = open('data/detection_data.csv', 'a+', newline ='')
+    
+    # writing the data into the file
+    with file:   
+        write = csv.writer(file)
+        write.writerows(params)
 
-    # print the object coefficient
-    print(boxes)
+    #print(params)
+    for param in params:
+        print(param)
 
+    frame_count += 1
+    
     key = cv2.waitKey(1)
     if key==27:
         break
