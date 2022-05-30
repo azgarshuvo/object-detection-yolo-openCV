@@ -1,5 +1,5 @@
-# object-tracking-yolo-openCV
-Object Tracking using YOLO algorithm classified by Deep Neural Network, Library using openCV by Python
+# object-detection-yolo-openCV
+Object Detection using YOLO algorithm classified by Deep Neural Network, Library using openCV by Python
 
 ## Installation
 
